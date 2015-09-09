@@ -1,0 +1,20 @@
+public class Solution {
+  public ListNode removeNthFromEnd(ListNode head, int n) {
+    ListNode Head = new ListNode(0);
+      Head.next = head;
+      ListNode p = Head,q = Head;//set two pointer
+      if(head == null){
+      	return head;//check if the input Linked list is null 
+      }else{
+        for(int i=0;i<n;i++){
+      		q = q.next;//move the q pointer to the n-th node
+      	}
+      	while(q.next != null){
+      		q = q.next;//move the q pointer to the end
+      	p = p.next;//the p pointer will be at n-th node from end
+      	}
+      	p.next = p.next.next;//delete the target node
+      	return Head.next;
+      }
+    }
+}
